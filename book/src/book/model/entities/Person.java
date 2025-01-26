@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import book.model.exception.CpfError;
 import book.utils.StringChecker;
 
-public class Person {
+public abstract class Person {
 	
 	private  String cpf;
 	private String firstName;
