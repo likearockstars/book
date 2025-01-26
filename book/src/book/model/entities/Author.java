@@ -1,6 +1,7 @@
 package book.model.entities;
 
 import book.model.exception.CpfError;
+import book.utils.NumberChecker;
 import book.utils.StringChecker;
 
 public class Author extends Person {
@@ -10,7 +11,6 @@ public class Author extends Person {
 	private String pseudonmy;
 	
 	public Author() {
-		
 		super();
 	}
 
@@ -25,7 +25,9 @@ public class Author extends Person {
 	
 	public void setNumberAuthor(Long numberAuthor) {
 		
-		this.numberAuthor = (numberAuthor > 0) ? numberAuthor : 0;
+		
+		NumberChecker.checkNumberInteger(numberAuthor);
+		this.numberAuthor = numberAuthor;
 	}
 	
 	public Long getNumberAuthor() {

@@ -3,7 +3,7 @@ package book.model.entities;
 import book.model.exception.CpfError;
 import book.utils.StringChecker;
 
-public abstract class Person {
+public class Person {
 	
 	private  String cpf;
 	private String firstName;
@@ -25,12 +25,11 @@ public abstract class Person {
 	public void setCpf(String cpf) throws CpfError
 	{
 		
-		if(StringChecker.CpfValidator(cpf) && StringChecker.digitValidation(cpf)) {
-			
-			this.cpf = cpf;
-		}else {
-			throw new IllegalArgumentException("Enter an invalid CPF!");
+		if( !(StringChecker.CpfValidator(cpf)) ){
+			throw new CpfError("Enter a valid CPF!");
 		}
+		
+		this.cpf = cpf;
 	}
 	
 	public String getCpf() {
@@ -41,13 +40,12 @@ public abstract class Person {
 	public void setFirstName(String firstName) {
 		
 		
-		if(StringChecker.nameValidator(firstName)) {
+		if( !(StringChecker.nameValidator(firstName)) ) {
 			
-			this.firstName = firstName;
-		}else {
 			throw new IllegalArgumentException("Enter a valid first name!");
 		}
 		
+		this.firstName = firstName;
 	
 	}
 	
@@ -59,12 +57,12 @@ public abstract class Person {
 	public void setLastName(String lastName) {
 		
 		
-		if(StringChecker.nameValidator(lastName)) {
+		if( !(StringChecker.nameValidator(lastName)) ) {
 			
-			this.lastName = lastName;
-		}else {
 			throw new IllegalArgumentException("Enter a valid last name!");
 		}
+		
+		this.lastName = lastName;
 	}
 	
 	public String getLastName() {
@@ -74,13 +72,12 @@ public abstract class Person {
 	
 	public void setEmail(String email) {
 		
-		if(StringChecker.emailValidator(email)) {
-			
-			this.email = email;
-		}else {
+		if( !(StringChecker.emailValidator(email)) ) {
 			
 			throw new IllegalArgumentException("Enter a valid email!");
 		}
+		
+		this.email = email;
 	}
 	
 	public String getEmail() {
@@ -94,9 +91,6 @@ public abstract class Person {
 				+ getLastName() + ", getEmail()=" + getEmail() + "]";
 	}
 	
-	
-	
 
-	
 	
 }
