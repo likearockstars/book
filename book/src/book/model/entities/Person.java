@@ -55,7 +55,7 @@ public class Person {
 			throw new IllegalArgumentException("Enter a valid first name!");
 		}
 		
-		this.firstName = firstName;
+	
 	}
 	
 	public String getFirstName() {
