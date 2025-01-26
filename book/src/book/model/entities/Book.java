@@ -69,7 +69,7 @@ public class Book {
 	public void setVolume(Integer volume) {
 		
 		
-		NumberChecker.checkNumberDouble(volume);
+		NumberChecker.checkNumberInteger(volume);
 		this.volume = volume;
 	}
 	
