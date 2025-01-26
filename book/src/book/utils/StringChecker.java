@@ -123,7 +123,5 @@ public class StringChecker {
 	}
 	
 	
-	
-	
 
 }
