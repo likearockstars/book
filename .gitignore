@@ -1,1 +1,31 @@
-/.metadata/
+# Compiled class files / Arquivos compilados
+*.class
+
+# Log files / Arquivos de log
+*.log
+
+# BlueJ files / Arquivos do BlueJ
+*.ctxt
+
+# Mobile Tools for Java (J2ME) temporary files / Arquivos temporários do J2ME
+.mtj.tmp/
+
+# Package files / Arquivos de pacotes
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs / Logs de crash da máquina virtual
+# See / Consulte: http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
+
+# Ignore build directories / Ignorar diretórios de compilação
+/bin/
+
+# Ignore Eclipse IDE settings (.settings/) | Ignorar configurações da IDE Eclipse (.settings/)
+.settings/
