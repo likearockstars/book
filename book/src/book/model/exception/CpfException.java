@@ -1,10 +1,10 @@
 package book.model.exception;
 
-public class CpfError extends Exception {
+public class CpfException extends Exception {
 	
 	private static final long serialVersionUID = 256347037757722154L;
 
-	public CpfError(String error) {
+	public CpfException(String error) {
 		
 		super(error);
 	}

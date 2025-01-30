@@ -1,13 +1,10 @@
 package book.model.entities;
 
-import book.model.exception.CpfError;
-import book.utils.NumberChecker;
+import book.model.exception.CpfException;
 import book.utils.StringChecker;
 
 public class Author extends Person {
 	
-	
-	private Long numberAuthor;
 	private String pseudonmy;
 	
 	public Author() {
@@ -15,25 +12,13 @@ public class Author extends Person {
 	}
 
 	
-	public Author(String cpf,String firstName, String lastName,String email) throws CpfError {
+	public Author(Integer numberId,String cpf,String firstName, String lastName,String email) throws CpfException{
 		
 		
-		super(cpf,firstName,lastName,email);
-		this.setNumberAuthor(numberAuthor);
+		super(numberId,cpf,firstName,lastName,email);
 		this.setPseudonmy(pseudonmy);
 	}
 	
-	public void setNumberAuthor(Long numberAuthor) {
-		
-		
-		NumberChecker.checkNumberInteger(numberAuthor);
-		this.numberAuthor = numberAuthor;
-	}
-	
-	public Long getNumberAuthor() {
-		
-		return this.numberAuthor;
-	}
 	
 	public void setPseudonmy(String pseudonmy) {
 		
@@ -55,8 +40,11 @@ public class Author extends Person {
 
 	@Override
 	public String toString() {
-		return "Author [getNumberAuthor()=" + getNumberAuthor() + ", getPseudonmy()=" + getPseudonmy() + "]";
+		return "Author [getPseudonmy()=" + getPseudonmy() + "]";
 	}
+
+
+	
 	
 	
 		

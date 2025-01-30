@@ -1,10 +1,11 @@
 package book.model.entities;
-
-import book.model.exception.CpfError;
+import book.model.exception.CpfException;
+import book.utils.NumberChecker;
 import book.utils.StringChecker;
 
 public class Person {
 	
+	private Integer numberId;
 	private  String cpf;
 	private String firstName;
 	private String lastName;
@@ -14,19 +15,44 @@ public class Person {
 	public Person() {
 	}
 	
-	public Person(String cpf, String firstName, String lastName, String email) throws CpfError {
+	
+	public Person(Integer numberId, String firstName, String lastName, String email) throws CpfException {
 		
+		
+		this.setNumberId(numberId);
+		this.setFirstName(firstName);
+		this.setLastName(lastName);
+		this.setEmail(email);
+	}
+	
+	public Person(Integer numberId,String cpf, String firstName, String lastName, String email) throws CpfException {
+		
+		
+		this.setNumberId(numberId);
 		this.setCpf(cpf);
 		this.setFirstName(firstName);
 		this.setLastName(lastName);
 		this.setEmail(email);
 	}
 	
-	public void setCpf(String cpf) throws CpfError
+	public void setNumberId(Integer numberId) {
+		
+		NumberChecker.checkNumberInteger(numberId);
+		this.numberId = numberId;
+	
+	}
+	
+	
+	public Integer getNumberId() {
+		
+		return this.numberId;
+	}
+	
+	public void setCpf(String cpf) throws CpfException
 	{
 		
-		if( !(StringChecker.CpfValidator(cpf)) ){
-			throw new CpfError("Enter a valid CPF!");
+		if( !(StringChecker.CpfValidator(cpf)) ){ 
+			throw new CpfException("Enter a valid CPF!");
 		}
 		
 		this.cpf = cpf;
@@ -90,6 +116,7 @@ public class Person {
 		return "Person [getCpf()=" + getCpf() + ", getFirstName()=" + getFirstName() + ", getLastName()="
 				+ getLastName() + ", getEmail()=" + getEmail() + "]";
 	}
+
 	
 
 	

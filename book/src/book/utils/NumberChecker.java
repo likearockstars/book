@@ -13,6 +13,13 @@ public class NumberChecker {
 	        throw new IllegalArgumentException("Enter an integer number (Integer).");
 	    }
 	}
+	
+	public static void checkNumberLong(Object number) {
+		
+		if(!(number instanceof Long)) {
+			throw new IllegalArgumentException("Enter an long number (Long).");
+		}
+	}
 
 
 }

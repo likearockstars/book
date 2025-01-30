@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import book.model.exception.CpfError;
+import book.model.exception.CpfException;
 
 public class StringChecker {
 	
@@ -31,7 +31,7 @@ public class StringChecker {
 	
 	public static boolean emailValidator(String prompt) {
 		
-		String rgx = " String regex = \"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,}$\";";
+		String rgx = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
 		Pattern pattern = Pattern.compile(rgx);
 		Matcher matcher = pattern.matcher(prompt);
 		return matcher.matches();
@@ -54,7 +54,7 @@ public class StringChecker {
 		return matcher.matches();
 	}
 	
-	public static boolean digitValidation(String prompt) throws CpfError {
+	public static boolean digitValidation(String prompt) throws CpfException {
 
 		
 		// Get first digit validator
@@ -100,7 +100,7 @@ public class StringChecker {
 			return true;
 		}else {
 			
-			throw new CpfError("Enter a CPF with valid verification digits");
+			throw new CpfException("Enter a CPF with valid verification digits");
 		}
 		
 		
